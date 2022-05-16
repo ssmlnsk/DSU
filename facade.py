@@ -22,25 +22,29 @@ class Facade:
         :return: None
         """
         data = self.DB.get_data_db()
-        if type(data) != int:
-            print('Выгрузка данных: ', data)
-            if data is not None:
-                data = data.split(', ')
-                for i in data:
-                    i = int(i)
-                    self.dsu.push(i)
-                    self.dsu.make_set()
-                print(data)
+        print(data)
+        if data == '':
+            data = []
         else:
-            data = str(data)
-            print('Выгрузка данных: ', data)
-            if data is not None:
-                data = data.split(', ')
-                for i in data:
-                    i = int(i)
-                    self.dsu.push(i)
-                    self.dsu.make_set()
-                print(data)
+            if type(data) != int:
+                print('Выгрузка данных: ', data)
+                if data is not None:
+                    data = data.split(', ')
+                    for i in data:
+                        i = int(i)
+                        self.dsu.push(i)
+                        self.dsu.make_set()
+                    print(data)
+            else:
+                data = str(data)
+                print('Выгрузка данных: ', data)
+                if data is not None:
+                    data = data.split(', ')
+                    for i in data:
+                        i = int(i)
+                        self.dsu.push(i)
+                        self.dsu.make_set()
+                    print(data)
 
     def make_set(self):
         """
